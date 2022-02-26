@@ -43,14 +43,15 @@ function App() {
   return (
     <div>
       {init ? (
+        <>
         <main>
           <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} refreshUser={refreshUser} />
         </main>
-      ) : "Initializing..."}
-
-      <footer className="footer">
-        <div> &copy; {new Date().getFullYear()} Rwitter by Real-Bird</div>
+        <footer className="footer">
+        <div> &copy; {new Date().getFullYear()} Save2Day by Real-Bird</div>
       </footer>
+      </>
+      ) : "Initializing..."}
 
     </div>
   );

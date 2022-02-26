@@ -1,6 +1,5 @@
 import React from "react";
 import { HashRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import Calendar from "router/Calendar";
 import Auth from "router/Auth";
 import Home from "router/Home";
 
@@ -14,9 +13,6 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
             <>
               <Route exact path="/">
                 <Home userObj={userObj} />
-              </Route>
-              <Route exact path="/calendar">
-                <Calendar />
               </Route>
               <Redirect from="*" to="/" />
             </>
