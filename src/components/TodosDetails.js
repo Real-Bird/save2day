@@ -35,7 +35,7 @@ const TodosDetails = ({ userObj, todoObj }) => {
   return (
     <>
       <div>
-        <div key={todoObj.todoId} className={clearFlag ? clearLine : clearLine}>
+        <div className={clearFlag ? clearLine : clearLine}>
           <button onClick={toggleFlag}>{todoObj.hotFlag ? "❤" : "🤍"}</button>
 
           <span>{todoObj.text}</span>

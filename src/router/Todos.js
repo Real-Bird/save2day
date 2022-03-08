@@ -29,7 +29,7 @@ const Todos = ({ userObj }) => {
   return (
     <>
       {todoList.map((todo) => (
-        <TodosDetails userObj={userObj} todoObj={todo} />
+        <TodosDetails key={todo.todoId} userObj={userObj} todoObj={todo} />
       ))}
       <TodoForm userObj={userObj} />
     </>
