@@ -10,20 +10,20 @@ import Home from "router/Home";
 import Navigation from "components/Navigation";
 import Todos from "router/Todos";
 
-const AppRouter = ({ isLoggedIn, userObj }) => {
+const AppRouter = ({ isLoggedIn, userObj, today }) => {
   return (
     <>
       <Router basename="/">
-        {isLoggedIn && <Navigation />}
+        {/* {isLoggedIn && <Navigation />} */}
         <Switch>
           {isLoggedIn ? (
             <>
               <Route exact path="/">
-                <Home userObj={userObj} />
+                <Home userObj={userObj} today={today} />
               </Route>
-              <Route exact path="/todos">
-                <Todos userObj={userObj} />
-              </Route>
+              {/* <Route exact path="/todos">
+                <Todos userObj={userObj} today={today} />
+              </Route> */}
               <Redirect from="*" to="/" />
             </>
           ) : (

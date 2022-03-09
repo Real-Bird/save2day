@@ -4,7 +4,7 @@ import { db } from "fBase";
 import { useHistory } from "react-router-dom";
 import "components/todo.css";
 
-const TodoForm = ({ userObj }) => {
+const TodoForm = ({ userObj, state }) => {
   const history = useHistory();
   const [newTodo, setNewTodo] = useState("");
   const onChange = (event) => {
@@ -20,9 +20,9 @@ const TodoForm = ({ userObj }) => {
     }
     event.preventDefault();
     const docRef = {
-      createdYear: new Date().getFullYear(),
-      createdMonth: new Date().getMonth() + 1,
-      createdDate: new Date().getDate(),
+      createdYear: state.year,
+      createdMonth: state.month,
+      createdDate: state.date,
       nickName: userObj.displayName,
       text: newTodo,
       todoId: Date.now(),
@@ -41,7 +41,7 @@ const TodoForm = ({ userObj }) => {
         <input
           onChange={onChange}
           type="text"
-          placeholder="오늘의 할 일"
+          placeholder="할 일을 등록하세요."
           value={newTodo}
         />
         <input type="submit" value="입력" />
