@@ -9,7 +9,7 @@
 
 ### (1)-1 스택
 
-`**React.JS**`, `**CSS3**`, `**FireBase**`
+**`React.JS`**, **`CSS3`**, **`FireBase`**
 
 ## (2) 진행도
 
