@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import "components/todo.css";
 
 const TodoForm = ({ userObj, state }) => {
-  const history = useHistory();
   const [newTodo, setNewTodo] = useState("");
   const onChange = (event) => {
     const {
@@ -31,13 +30,9 @@ const TodoForm = ({ userObj, state }) => {
     await addDoc(collection(db, `${userObj.uid}`), docRef);
     setNewTodo("");
   };
-  const onHistory = () => history.push("/");
   return (
     <>
       <form onSubmit={onSubmit}>
-        <span onClick={onHistory} className="back">
-          🔙
-        </span>
         <input
           onChange={onChange}
           type="text"
