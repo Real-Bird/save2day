@@ -18,7 +18,7 @@
 - [x] Todo List 1차 구현 **22.02.26**
 - [x] 아키텍처 수정 **22.02.27 ~ 22.03.07**
 - [x] Todo List 2차 구현 **22.03.08**
-- [x] Calendar 및 Todo Modal 구현 **22.03.08**
-- [x] Modal 수정
-- [] quotes 수집 (selenium 이용 크롤링)
+- [x] Calendar 및 Todo Modal 구현 **22.03.09**
+- [x] Modal 수정및 quotes 수집 (selenium 이용 크롤링) **22.03.10**
 - [] profile 편집 추가 (사진, 닉네임 수정)
+- [] quotes 추가
