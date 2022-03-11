@@ -20,5 +20,7 @@
 - [x] Todo List 2차 구현 **22.03.08**
 - [x] Calendar 및 Todo Modal 구현 **22.03.09**
 - [x] Modal 수정및 quotes 수집 (selenium 이용 크롤링) **22.03.10**
-- [] profile 편집 추가 (사진, 닉네임 수정)
-- [] quotes 추가
+- [x] profile 편집 추가 (사진, 닉네임 수정) **22.03.11**
+- [] random quotes 추가
+- [] CSS 작업
+- [] github-pages 배포

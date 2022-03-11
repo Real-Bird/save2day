@@ -8,9 +8,9 @@ import {
 import Auth from "router/Auth";
 import Home from "router/Home";
 import Navigation from "components/Navigation";
-import Todos from "router/Todos";
+import ProfileDetail from "./ProfileDetail";
 
-const AppRouter = ({ isLoggedIn, userObj, today }) => {
+const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
   return (
     <>
       <Router basename="/">
@@ -24,6 +24,9 @@ const AppRouter = ({ isLoggedIn, userObj, today }) => {
               {/* <Route exact path="/todos">
                 <Todos userObj={userObj} today={today} />
               </Route> */}
+              <Route exact path="/profile">
+                <ProfileDetail userObj={userObj} refreshUser={refreshUser} />
+              </Route>
               <Redirect from="*" to="/" />
             </>
           ) : (

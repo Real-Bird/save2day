@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "fBase";
-import { useHistory } from "react-router-dom";
 import "components/todo.css";
 
 const TodoForm = ({ userObj, state }) => {
