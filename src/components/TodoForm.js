@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "fBase";
-import "components/todo.css";
+import "../css/todo.css";
 
 const TodoForm = ({ userObj, state }) => {
   const [newTodo, setNewTodo] = useState("");

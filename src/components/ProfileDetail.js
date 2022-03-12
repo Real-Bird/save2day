@@ -10,6 +10,7 @@ import {
 import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import "../css/profile.css";
 
 const ProfileDetail = ({ userObj, refreshUser }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -80,7 +81,13 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
   };
   return (
     <>
-      <img src={userObj.profilePhoto} alt="userPhoto" />
+      <div className="photo_box">
+        <img
+          className="photo_box__img"
+          src={userObj.profilePhoto}
+          alt="userPhoto"
+        />
+      </div>
       <h2>{userObj.displayName}</h2>
       <form onSubmit={onSubmit}>
         <label htmlFor="EditName">Be able to use 2~8 words </label>
@@ -104,8 +111,9 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
           value={imgFile}
         />
         {editPhoto && (
-          <div>
+          <div className="editphoto_box">
             <img
+              className="editphoto_box__img"
               src={editPhoto}
               style={{
                 backgroundImage: editPhoto,

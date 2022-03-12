@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "fBase";
-import "components/todo.css";
+import "../css/todo.css";
 
 const TodosDetails = ({ userObj, todoObj, today, state }) => {
   const [hotFlag, setHotFlag] = useState(false);
