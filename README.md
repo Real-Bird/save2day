@@ -21,6 +21,7 @@
 - [x] Calendar 및 Todo Modal 구현 **22.03.09**
 - [x] Modal 수정및 quotes 수집 (selenium 이용 크롤링) **22.03.10**
 - [x] profile 편집 추가 (사진, 닉네임 수정) **22.03.11**
-- [] random quotes 추가
-- [] CSS 작업
+- [x] random quotes 추가 **22.03.13**
+- [] CSS 작업 **진행 중**
+- [] Calendar 오늘 날짜 이동 버튼 추가
 - [] github-pages 배포

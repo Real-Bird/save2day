@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import TodoForm from "./TodoForm";
 import TodosDetails from "./TodosDetails";
 import Modal from "../components/Modal";
+import "../css/calendar.css";
 
 const CalendarDetail = ({ userObj, todoList, today }) => {
   const [state, setState] = useState({});

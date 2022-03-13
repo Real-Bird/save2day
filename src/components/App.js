@@ -5,6 +5,7 @@ import { onAuthStateChanged, updateProfile } from "firebase/auth";
 // import { v4 as uuidv4 } from "uuid";
 import basicProfile from "../image/basic_profile.png";
 import loadingGif from "../image/profile_load.gif";
+import "../css/styles.css";
 
 function App() {
   const date = new Date();
@@ -59,17 +60,12 @@ function App() {
     <div>
       {init ? (
         <>
-          <main>
-            <AppRouter
-              isLoggedIn={Boolean(userObj)}
-              userObj={userObj}
-              refreshUser={refreshUser}
-              today={today}
-            />
-          </main>
-          <footer className="footer">
-            <div> &copy; 2022 Save2Day by Real-Bird</div>
-          </footer>
+          <AppRouter
+            isLoggedIn={Boolean(userObj)}
+            userObj={userObj}
+            refreshUser={refreshUser}
+            today={today}
+          />
         </>
       ) : (
         <img src={loadingGif} alt="loading" />

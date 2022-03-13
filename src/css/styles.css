@@ -1,0 +1,25 @@
+@import "reset.css";
+html {
+  background-color: #212121;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    display: grid;
+    grid-template-rows: 1fr;
+    color: hsla(0, 0%, 100%, 0.6);
+    font-family: Georgia, "맑은 고딕", serif;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 699px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: hsla(0, 0%, 100%, 0.6);
+    font-family: Georgia, "맑은 고딕", serif;
+  }
+}
