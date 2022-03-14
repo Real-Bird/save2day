@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/quotes.css";
 
 const loadQuotes = require("../asset/quotes.json");
 
@@ -15,11 +16,19 @@ const QuotesDetail = () => {
   const [isKr, setIsKr] = useState(true);
   const toggleQuoteChange = () => setIsKr((prev) => !prev);
   return (
-    <>
-      <div>{isKr ? Quotes.k_name : Quotes.e_name}</div>
-      <div>{isKr ? Quotes.k_quote : Quotes.e_quote}</div>
-      <button onClick={toggleQuoteChange}>{isKr ? "Eng" : "Kor"}</button>
-    </>
+    <div className="quotes_detail">
+      <div>
+        <span>{isKr ? Quotes.k_quote : Quotes.e_quote}</span>
+        <div>- {isKr ? Quotes.k_name : Quotes.e_name} -</div>
+      </div>
+      <div>
+        <label class="switch">
+          <input type="checkbox" onClick={toggleQuoteChange} />
+          <span class="slider round"></span>
+          <span className="text"></span>
+        </label>
+      </div>
+    </div>
   );
 };
 

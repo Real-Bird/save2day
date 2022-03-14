@@ -1,9 +1,10 @@
 import React from "react";
+import "../css/home.css";
 
 const HomeDetail = ({ today, todoList }) => {
   return (
     <>
-      <p>Today 💥Hot💥 Todo!!!</p>
+      <div className="hot">Today 💥Hot💥 Todo!!!</div>
       {todoList.map(
         (hot) =>
           hot.hotFlag &&

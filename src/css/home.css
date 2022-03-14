@@ -1,0 +1,6 @@
+.hot {
+  width: 200px;
+  margin: 10px auto;
+  padding: 5px;
+  border: 2px outset hsla(0, 0%, 100%, 0.6);
+}

@@ -33,21 +33,31 @@ const Home = ({ userObj, today }) => {
         <div className="profile">
           <Profile userObj={userObj} />
         </div>
-        <div className="quotes">
-          <Quotes />
+        <div className="super_title">
+          <h1 className="title">Save 2Day</h1>
+          <div className="copyright">&copy; 2022 Save2Day by Real-Bird</div>
+        </div>
+        <div className="notice">
+          <h4>Notice</h4>
+          <ul>
+            <li>추가할 예정</li>
+            <li>기간은 미정</li>
+          </ul>
         </div>
       </header>
       <main className="middle_box">
         <div className="home">
           <HomeDetail userObj={userObj} today={today} todoList={todoList} />
-          <div className="copyright">
-            <div>&copy; 2022 Save2Day by Real-Bird</div>
-          </div>
         </div>
         <div className="calendar">
           <CalendarPath userObj={userObj} todoList={todoList} today={today} />
         </div>
       </main>
+      <footer>
+        <div className="quotes">
+          <Quotes />
+        </div>
+      </footer>
     </div>
   );
 };

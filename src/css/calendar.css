@@ -1,14 +1,13 @@
-.calendar {
-  width: 50vmax;
-  height: 100%;
-}
-
 .react-calendar {
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+  height: 60vh;
   display: grid;
-  grid-template-rows: 10vmin 1fr;
+  grid-template-rows: 0.5fr 1fr;
+}
+
+.react-calendar__navigation {
+  height: 5vh;
 }
 
 .react-calendar__navigation button {
@@ -17,47 +16,69 @@
   color: hsla(0, 0%, 100%, 0.6);
   background-color: transparent !important;
   background-image: none !important;
-  font-size: 3vmax;
+  font-size: 1.2em;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.react-calendar__navigation {
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-evenly;
+.react-calendar__navigation__label {
+  width: 130px;
+}
+
+.react-calendar__navigation__prev2-button {
+  border-radius: 20px 0 0 20px;
+}
+.react-calendar__navigation__next2-button {
+  border-radius: 0 20px 20px 0;
+}
+
+.react-calendar__month-view__weekdays {
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr;
+  align-content: stretch;
   align-items: stretch;
+  justify-content: center;
+  height: 45vh;
+}
+
+.react-calendar__year-view__months {
+  display: grid !important;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.react-calendar__decade-view__years,
+.react-calendar__century-view__decades {
+  display: grid !important;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.react-calendar__month-view__days button,
+.react-calendar__year-view__months button,
+.react-calendar__decade-view__years button,
+.react-calendar__century-view__decades button {
+  border-radius: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  height: 80px;
+  font-size: 27px;
+  border: 3px solid hsla(0, 0%, 100%, 0.6);
+  color: hsla(0, 0%, 100%, 0.6);
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 0 5px 5px;
 }
 
 .react-calendar__viewContainer {
-  background-color: tomato;
-  height: 20vmax;
-}
-
-@media screen and (max-width: 699px) {
-  .calendar {
-    width: 100%;
-    height: 100%;
-  }
-
-  .react-calendar {
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 10vmin 1fr;
-  }
-
-  .react-calendar__navigation {
-    display: flex;
-    height: 100%;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: stretch;
-  }
-
-  .react-calendar__viewContainer {
-    background-color: tomato;
-    height: 20vmax;
-  }
+  height: 49vh;
 }
