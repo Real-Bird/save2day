@@ -1,7 +1,17 @@
 @import "reset.css";
+@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+
 html {
   background-color: #212121;
   height: 100%;
+}
+body {
+  font-family: "Jeju Hallasan", cursive;
+}
+
+a {
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.6);
 }
 
 @media screen and (min-width: 700px) {
@@ -9,7 +19,6 @@ html {
     display: grid;
     grid-template-rows: 1fr;
     color: hsla(0, 0%, 100%, 0.6);
-    font-family: Georgia, "맑은 고딕", serif;
     justify-content: center;
   }
 }
@@ -21,6 +30,5 @@ html {
     align-items: center;
     justify-content: center;
     color: hsla(0, 0%, 100%, 0.6);
-    font-family: Georgia, "맑은 고딕", serif;
   }
 }

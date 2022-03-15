@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import TodoForm from "./TodoForm";
 import TodosDetails from "./TodosDetails";
@@ -10,6 +10,7 @@ const CalendarDetail = ({ userObj, todoList, today }) => {
   const [state, setState] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [dateValue, setDateValue] = useState(new Date());
+
   const openModal = (e) => {
     setModalOpen(true);
     setState({
@@ -21,6 +22,7 @@ const CalendarDetail = ({ userObj, todoList, today }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
   return (
     <>
       <Calendar

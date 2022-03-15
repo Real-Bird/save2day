@@ -22,9 +22,9 @@ const QuotesDetail = () => {
         <div>- {isKr ? Quotes.k_name : Quotes.e_name} -</div>
       </div>
       <div>
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" onClick={toggleQuoteChange} />
-          <span class="slider round"></span>
+          <span className="slider round"></span>
           <span className="text"></span>
         </label>
       </div>

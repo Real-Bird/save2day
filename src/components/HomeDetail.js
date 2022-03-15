@@ -11,7 +11,9 @@ const HomeDetail = ({ today, todoList }) => {
           hot.createdYear === today.year &&
           hot.createdMonth === today.month &&
           hot.createdDate === today.date && (
-            <div key={hot.todoId}>{hot.text}</div>
+            <div key={hot.todoId} className="hot_todo">
+              {hot.text}
+            </div>
           )
       )}
     </>

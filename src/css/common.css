@@ -17,6 +17,9 @@
   display: flex;
   flex-flow: column wrap;
   height: 4em;
+  width: 30em;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .title {
@@ -43,6 +46,7 @@ footer {
     text-align: center;
     justify-content: center;
     justify-items: center;
+    align-items: center;
   }
 
   .up_box {
@@ -62,7 +66,7 @@ footer {
     text-align: center;
     column-gap: 30px;
     width: 70rem;
-    height: 60vh;
+    height: 36.5em;
     justify-content: space-evenly;
     align-items: start;
     justify-items: center;
@@ -72,8 +76,8 @@ footer {
     border: 3px solid hsla(0, 0%, 100%, 0.6);
     color: hsla(0, 0%, 100%, 0.6);
     border-radius: 20px;
-    height: 45vh;
-    width: 30vh;
+    height: 24em;
+    width: 24em;
     transform: translateY(70px);
     text-align: center;
   }

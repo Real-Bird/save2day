@@ -5,6 +5,7 @@
   min-width: 280px;
   border: 2px solid hsla(0, 0%, 100%, 0.6);
   justify-content: center;
+  border-radius: 20px;
 }
 
 .profile_box img {
@@ -14,14 +15,14 @@
   border-radius: 100%;
 }
 
-.profile_box__name {
-}
 .profile_box__name h2 {
   margin: 10px auto;
   text-align: center;
   font-size: 26px;
 }
 .profile_box__name button {
+  font-family: "Jeju Hallasan", cursive;
+  border-radius: 7px;
   margin: 5px;
   text-align: center;
   border: 3px solid hsla(0, 0%, 100%, 0.6);
@@ -30,7 +31,93 @@
   background-image: none !important;
 }
 
+.full_porfile_box {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.7fr;
+  width: 40vw;
+  justify-items: center;
+  align-items: center;
+}
+
 .editphoto_box__img {
   width: 200px;
   height: 200px;
+}
+
+.header {
+  height: min-content;
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.photo_box {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.photo_box img {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+.display_name {
+  font-size: 36px;
+}
+
+.full_porfile_box button {
+  border-radius: 20px;
+  font-family: "Jeju Hallasan", cursive;
+  height: 80px;
+  font-size: 24px;
+  border: 3px solid hsla(0, 0%, 100%, 0.6);
+  color: hsla(0, 0%, 100%, 0.6);
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 0 5px 5px;
+}
+
+.edit_form {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+.edit_form input:not([type="file"]),
+.remove_btn {
+  border-radius: 10px;
+  font-family: "Jeju Hallasan", cursive;
+  font-size: 1.3em;
+  height: 30px;
+  width: auto;
+  border: 3px solid hsla(0, 0%, 100%, 0.6);
+  color: hsla(0, 0%, 100%, 0.6);
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 0 5px 5px;
+}
+
+input::file-selector-button {
+  border-radius: 20px;
+  font-family: "Jeju Hallasan", cursive;
+  height: 20px;
+  font-size: 16px;
+  color: hsla(0, 0%, 100%, 0.6);
+  background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 0 5px 5px;
+  cursor: pointer;
+}
+
+.editphoto_box__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
 }

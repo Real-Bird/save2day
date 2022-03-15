@@ -6,7 +6,9 @@ import React, { useEffect, useState } from "react";
 import CalendarPath from "router/CalendarPath";
 import Profile from "router/Profile";
 import Quotes from "./Quotes";
+import Header from "components/Header";
 import "../css/common.css";
+import Notice from "components/Notice";
 
 const Home = ({ userObj, today }) => {
   const [todoList, setTodoList] = useState([]);
@@ -33,16 +35,9 @@ const Home = ({ userObj, today }) => {
         <div className="profile">
           <Profile userObj={userObj} />
         </div>
-        <div className="super_title">
-          <h1 className="title">Save 2Day</h1>
-          <div className="copyright">&copy; 2022 Save2Day by Real-Bird</div>
-        </div>
-        <div className="notice">
-          <h4>Notice</h4>
-          <ul>
-            <li>추가할 예정</li>
-            <li>기간은 미정</li>
-          </ul>
+        <Header userObj={userObj} />
+        <div>
+          <Notice />
         </div>
       </header>
       <main className="middle_box">
