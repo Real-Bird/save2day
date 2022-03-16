@@ -9,6 +9,7 @@ import Auth from "router/Auth";
 import Home from "router/Home";
 import Navigation from "components/Navigation";
 import ProfileDetail from "./ProfileDetail";
+import Todos from "router/Todos";
 
 const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
   return (
@@ -22,7 +23,10 @@ const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
                 <Home userObj={userObj} today={today} />
               </Route>
               {/* <Route exact path="/todos">
-                <Todos userObj={userObj} today={today} />
+                <Todos
+                  userObj={userObj}
+                  today={today}
+                />
               </Route> */}
               <Route exact path="/profile">
                 <ProfileDetail userObj={userObj} refreshUser={refreshUser} />

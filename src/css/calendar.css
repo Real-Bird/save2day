@@ -100,3 +100,21 @@
   background-color: red;
   border-radius: 100%;
 }
+
+.hot-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #f87171;
+  border-radius: 50%;
+  display: flex;
+  margin-left: 1px;
+}
+
+.nomal-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ced101;
+  border-radius: 50%;
+  display: flex;
+  margin-left: 1px;
+}

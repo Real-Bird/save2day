@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import TodosDetails from "components/TodosDetails";
 import TodoForm from "components/TodoForm";
 
-const Todos = ({ userObj }) => {
+const Todos = ({ userObj, today, dateValue }) => {
   const [todoList, setTodoList] = useState([]);
   useEffect(() => {
     let isMount = true;
@@ -28,10 +28,20 @@ const Todos = ({ userObj }) => {
   }, []);
   return (
     <>
-      {todoList.map((todo) => (
-        <TodosDetails key={todo.todoId} userObj={userObj} todoObj={todo} />
+      {todoList.map((todoObj) => (
+        <TodosDetails
+          key={todoObj.todoId}
+          userObj={userObj}
+          todoObj={todoObj}
+          today={today}
+          dateValue={dateValue}
+        />
       ))}
-      <TodoForm userObj={userObj} />
+      {dateValue >= today ? (
+        <TodoForm userObj={userObj} dateValue={dateValue} />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

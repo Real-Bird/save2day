@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "fBase";
 import "../css/todo.css";
 
-const TodoForm = ({ userObj, state }) => {
+const TodoForm = ({ userObj, dateValue }) => {
   const [newTodo, setNewTodo] = useState("");
   const onChange = (event) => {
     const {
@@ -18,9 +18,7 @@ const TodoForm = ({ userObj, state }) => {
     }
     event.preventDefault();
     const docRef = {
-      createdYear: state.year,
-      createdMonth: state.month,
-      createdDate: state.date,
+      fullyDate: new Date().toDateString(),
       nickName: userObj.displayName,
       text: newTodo,
       todoId: Date.now(),
@@ -29,6 +27,7 @@ const TodoForm = ({ userObj, state }) => {
     await addDoc(collection(db, `${userObj.uid}`), docRef);
     setNewTodo("");
   };
+
   return (
     <>
       <form onSubmit={onSubmit}>

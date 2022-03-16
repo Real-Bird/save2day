@@ -3,7 +3,7 @@ import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "fBase";
 import "../css/todo.css";
 
-const TodosDetails = ({ userObj, todoObj, today, state }) => {
+const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
   const [hotFlag, setHotFlag] = useState(false);
   const [clearLine, setClearLine] = useState("");
   const [isClear, setIsClear] = useState(false);
@@ -49,6 +49,7 @@ const TodosDetails = ({ userObj, todoObj, today, state }) => {
       setIsClear(checked);
     }
   };
+
   return (
     <>
       {editing ? (
@@ -69,26 +70,24 @@ const TodosDetails = ({ userObj, todoObj, today, state }) => {
         </div>
       ) : (
         <div>
-          {todoObj.createdYear === state.year &&
-            todoObj.createdMonth === state.month &&
-            todoObj.createdDate === state.date && (
-              <div className={isClear ? clearLine : ""}>
-                <button onClick={toggleFlag}>
-                  {todoObj.hotFlag ? "❤" : "🤍"}
-                </button>
-                <input onClick={onClear} type="checkbox" />
-                <span>{todoObj.text}</span>
-                <input
-                  type="button"
-                  onClick={toggleEditTodo}
-                  disabled={
-                    todoObj.createdDate < today.date ? "disabled" : null
-                  }
-                  value="Edit"
-                />
-                <button onClick={onDeleteClick}>❌</button>
-              </div>
-            )}
+          {todoObj.fullyDate === dateValue.toDateString() && (
+            <div className={isClear ? clearLine : ""}>
+              <button onClick={toggleFlag}>
+                {todoObj.hotFlag ? "❤" : "🤍"}
+              </button>
+              <input onClick={onClear} type="checkbox" />
+              <span>{todoObj.text}</span>
+              <input
+                type="button"
+                onClick={toggleEditTodo}
+                disabled={
+                  todoObj.fullyDate < today.toDateString() ? "disabled" : null
+                }
+                value="Edit"
+              />
+              <button onClick={onDeleteClick}>❌</button>
+            </div>
+          )}
         </div>
       )}
     </>

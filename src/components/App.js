@@ -7,14 +7,10 @@ import basicProfile from "../image/basic_profile.png";
 import loadingGif from "../image/profile_load.gif";
 import "../css/styles.css";
 
+const date = new Date();
+
 function App() {
-  const date = new Date();
-  const fullDate = {
-    year: date.getFullYear(),
-    month: date.getMonth() + 1,
-    date: date.getDate(),
-  };
-  const [today, setToday] = useState(fullDate);
+  const [today, setToday] = useState(new Date());
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
   const titleEl = document.querySelector("title");

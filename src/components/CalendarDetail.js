@@ -5,19 +5,25 @@ import TodosDetails from "./TodosDetails";
 import Modal from "../components/Modal";
 import dayjs from "dayjs";
 import "../css/calendar.css";
+import Todos from "router/Todos";
 
 const CalendarDetail = ({ userObj, todoList, today }) => {
-  const [state, setState] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [dateValue, setDateValue] = useState(new Date());
+  const [dateTodo, setDateTodo] = useState([{}]);
 
-  const openModal = (e) => {
-    setModalOpen(true);
-    setState({
-      year: e.getFullYear(),
-      month: e.getMonth() + 1,
-      date: e.getDate(),
+  useEffect(() => {
+    todoList.map((item) => {
+      setDateTodo((prev) => [
+        ...prev,
+        { date: item.fullyDate, flag: item.hotFlag },
+      ]);
     });
+    return dateTodo;
+  }, []);
+
+  const openModal = () => {
+    setModalOpen(true);
   };
   const closeModal = () => {
     setModalOpen(false);
@@ -38,35 +44,40 @@ const CalendarDetail = ({ userObj, todoList, today }) => {
         onClickDay={openModal}
         onChange={setDateValue}
         value={dateValue}
+        tileContent={({ date, view }) => {
+          if (dateTodo.find((item) => item.date === date.toDateString())) {
+            return (
+              <>
+                <div className="flex justify-center items-center absoluteDiv">
+                  {dateTodo.find(
+                    (item) =>
+                      item.flag === true && item.date === date.toDateString()
+                  ) && <div className="hot-dot"></div>}
+                  <div className="nomal-dot"></div>
+                </div>
+              </>
+            );
+          }
+        }}
         calendarType="US"
       />
       <Modal
         open={modalOpen}
         close={closeModal}
         header={
-          state.year === today.year &&
-          state.month === today.month &&
-          state.date === today.date
+          dateValue.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)
             ? "Today"
-            : `${state.year}년 ${state.month}월 ${state.date}일`
+            : `${dateValue.getFullYear()}년 ${
+                dateValue.getMonth() + 1
+              }월 ${dateValue.getDate()}일`
         }
       >
-        {todoList.map((todo) => (
-          <TodosDetails
-            key={todo.todoId}
-            userObj={userObj}
-            todoObj={todo}
-            state={state}
-            today={today}
-          />
-        ))}
-        {state.year >= today.year &&
-        state.month >= today.month &&
-        state.date >= today.date ? (
-          <TodoForm userObj={userObj} state={state} />
-        ) : (
-          <></>
-        )}
+        <Todos
+          todoList={todoList}
+          userObj={userObj}
+          dateValue={dateValue}
+          today={today}
+        />
       </Modal>
     </>
   );

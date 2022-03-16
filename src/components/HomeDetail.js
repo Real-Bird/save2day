@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../css/home.css";
 
 const HomeDetail = ({ today, todoList }) => {
@@ -8,9 +9,7 @@ const HomeDetail = ({ today, todoList }) => {
       {todoList.map(
         (hot) =>
           hot.hotFlag &&
-          hot.createdYear === today.year &&
-          hot.createdMonth === today.month &&
-          hot.createdDate === today.date && (
+          hot.fullyDate === today.toDateString() && (
             <div key={hot.todoId} className="hot_todo">
               {hot.text}
             </div>
