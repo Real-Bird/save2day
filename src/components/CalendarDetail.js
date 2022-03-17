@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import Modal from "../components/Modal";
 import dayjs from "dayjs";
 import "../css/calendar.css";
 import Todos from "router/Todos";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
-import { authService, db } from "fBase";
 
 const CalendarDetail = ({ userObj, todoList, today }) => {
   const [modalOpen, setModalOpen] = useState(false);

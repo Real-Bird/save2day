@@ -9,6 +9,7 @@ import Quotes from "./Quotes";
 import Header from "components/Header";
 import "../css/common.css";
 import Notice from "router/Notice";
+import NoticeHead from "components/NoticeHead";
 
 const Home = ({ userObj, today }) => {
   const [todoList, setTodoList] = useState([]);
@@ -38,7 +39,7 @@ const Home = ({ userObj, today }) => {
         </div>
         <Header userObj={userObj} />
         <div>
-          <Notice />
+          <NoticeHead />
         </div>
       </header>
       <main className="middle_box">
@@ -46,7 +47,7 @@ const Home = ({ userObj, today }) => {
           <HomeDetail userObj={userObj} today={today} todoList={todoList} />
         </div>
         <div className="calendar">
-          <CalendarPath userObj={userObj} todoList={todoList} today={today} />
+          <CalendarPath userObj={userObj} today={today} todoList={todoList} />
         </div>
       </main>
       <footer>
