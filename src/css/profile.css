@@ -90,7 +90,7 @@
   align-content: center;
 }
 
-.edit_form input:not([type="file"]),
+.edit_form input,
 .remove_btn {
   border-radius: 10px;
   font-family: "Jeju Hallasan", cursive;
@@ -102,6 +102,7 @@
   background-color: transparent !important;
   background-image: none !important;
   margin: 0 0 5px 5px;
+  text-align: center;
 }
 
 input::file-selector-button {

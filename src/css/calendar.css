@@ -87,6 +87,19 @@
   margin: 0 0 5px 5px;
 }
 
+.react-calendar__month-view__days__day button {
+  position: relative;
+}
+
+.react-calendar__month-view__days__day abbr[aria-label] {
+  position: absolute;
+}
+
+.react-calendar__month-view__days > button > abbr {
+  position: absolute;
+  transform: translate(2px, -12px);
+}
+
 .react-calendar__viewContainer {
   height: 49vh;
 }
@@ -102,19 +115,25 @@
 }
 
 .hot-dot {
-  height: 8px;
-  width: 8px;
-  background-color: #f87171;
-  border-radius: 50%;
-  display: flex;
-  margin-left: 1px;
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 7px solid #f87171;
+  border-top: 6px solid transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  transform: translate(18px, 26px);
 }
 
 .nomal-dot {
+  position: absolute;
   height: 8px;
   width: 8px;
   background-color: #ced101;
   border-radius: 50%;
-  display: flex;
-  margin-left: 1px;
+  transform: translate(35px, 30px);
+}
+
+.no-dot {
+  display: none;
 }

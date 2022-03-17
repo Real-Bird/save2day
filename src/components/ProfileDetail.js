@@ -37,19 +37,38 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
       return;
     }
     event.preventDefault();
-    const listRef = ref(storage, `profile/${userObj.uid}`);
-    listAll(listRef).then((res) => {
-      res.items.forEach((item) => {
-        deleteObject(ref(storage, `profile/${userObj.uid}/${item.name}`));
+    if (editPhoto !== "") {
+      const listRef = ref(storage, `profile/${userObj.uid}`);
+      listAll(listRef).then((res) => {
+        if (res.items.length > 0) {
+          deleteObject(
+            ref(storage, `profile/${userObj.uid}/${res.items[0].name}`)
+          ).catch((e) => console.log(e));
+        }
       });
-    });
+    }
     let editPhotoURL = "";
     if (editPhoto !== "") {
-      const attachmentRef = ref(storage, `profile/${userObj.uid}/${uuidv4()}`);
+      const attachmentRef = ref(
+        storage,
+        `profile/${userObj.uid}/${uuidv4().slice(0, 9)}`
+      );
       const response = await uploadString(attachmentRef, editPhoto, "data_url");
       editPhotoURL = await getDownloadURL(response.ref);
     }
-    if (userObj.displayName !== newDisplayName) {
+    if (
+      userObj.displayName !== newDisplayName &&
+      userObj.profilePhoto !== editPhoto
+    ) {
+      await updateProfile(authService.currentUser, {
+        displayName: newDisplayName,
+        photoURL: editPhotoURL,
+      });
+      refreshUser();
+      setEditNickName("");
+      setEditPhoto("");
+      setImgFile("");
+    } else if (userObj.displayName !== newDisplayName) {
       await updateProfile(authService.currentUser, {
         displayName: newDisplayName,
       });
@@ -61,6 +80,7 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
       });
       refreshUser();
       setEditPhoto("");
+      setImgFile("");
     }
   };
   const onFileChange = (event) => {
@@ -104,7 +124,7 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
       </div>
       {toggleEdit ? (
         <form className="edit_form" onSubmit={onSubmit}>
-          <label htmlFor="EditName">Be able to use 2~8 words </label>
+          <label htmlFor="EditName">별명(2~8자)</label>
           <input
             onChange={onChange}
             type="text"
@@ -112,15 +132,9 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
             minLength={2}
             placeholder="Do you replace your nick?"
             id="EditName"
+            value={editNickName}
           />
-          <label htmlFor="attach-file">Change Profile Photos</label>
-          <input
-            type="text"
-            id="fileName"
-            value={imgFile}
-            ref={fileClear}
-            disabled
-          />
+          <label htmlFor="attach-file">프로필 사진</label>
           <input
             id="attach-file"
             onChange={onFileChange}

@@ -8,7 +8,7 @@ import Profile from "router/Profile";
 import Quotes from "./Quotes";
 import Header from "components/Header";
 import "../css/common.css";
-import Notice from "components/Notice";
+import Notice from "router/Notice";
 
 const Home = ({ userObj, today }) => {
   const [todoList, setTodoList] = useState([]);
@@ -29,6 +29,7 @@ const Home = ({ userObj, today }) => {
     });
     return () => unsubscribe();
   }, []);
+
   return (
     <div className="main_box">
       <header className="up_box">

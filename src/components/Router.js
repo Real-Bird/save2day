@@ -9,7 +9,7 @@ import Auth from "router/Auth";
 import Home from "router/Home";
 import Navigation from "components/Navigation";
 import ProfileDetail from "./ProfileDetail";
-import Todos from "router/Todos";
+// import Todos from "router/Todos";
 
 const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
   return (

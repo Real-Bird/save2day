@@ -1,26 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
-import TodoForm from "./TodoForm";
-import TodosDetails from "./TodosDetails";
 import Modal from "../components/Modal";
 import dayjs from "dayjs";
 import "../css/calendar.css";
 import Todos from "router/Todos";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+import { authService, db } from "fBase";
 
 const CalendarDetail = ({ userObj, todoList, today }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [dateValue, setDateValue] = useState(new Date());
-  const [dateTodo, setDateTodo] = useState([{}]);
-
-  useEffect(() => {
-    todoList.map((item) => {
-      setDateTodo((prev) => [
-        ...prev,
-        { date: item.fullyDate, flag: item.hotFlag },
-      ]);
-    });
-    return dateTodo;
-  }, []);
 
   const openModal = () => {
     setModalOpen(true);
@@ -45,19 +35,24 @@ const CalendarDetail = ({ userObj, todoList, today }) => {
         onChange={setDateValue}
         value={dateValue}
         tileContent={({ date, view }) => {
-          if (dateTodo.find((item) => item.date === date.toDateString())) {
-            return (
-              <>
-                <div className="flex justify-center items-center absoluteDiv">
-                  {dateTodo.find(
-                    (item) =>
-                      item.flag === true && item.date === date.toDateString()
-                  ) && <div className="hot-dot"></div>}
-                  <div className="nomal-dot"></div>
-                </div>
-              </>
-            );
-          }
+          return (
+            <>
+              {todoList.map(
+                (hot) =>
+                  hot.hotFlag &&
+                  hot.fullyDate === date.toDateString() && (
+                    <span className="hot-dot"></span>
+                  )
+              )}
+              {todoList.map(
+                (hot) =>
+                  hot.hotFlag === false &&
+                  hot.fullyDate === date.toDateString() && (
+                    <span className="nomal-dot"></span>
+                  )
+              )}
+            </>
+          );
         }}
         calendarType="US"
       />
