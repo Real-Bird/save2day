@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "fBase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faFire } from "@fortawesome/free-solid-svg-icons";
 import "../css/todo.css";
 
 const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
-  const [hotFlag, setHotFlag] = useState(false);
   const [clearLine, setClearLine] = useState("");
+  const [hotFlag, setHotFlag] = useState(false);
   const [isClear, setIsClear] = useState(false);
   const [editing, setEditing] = useState(false);
   const [updateTodo, setUpdateTodo] = useState("");
@@ -50,6 +52,10 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
     }
   };
 
+  const dateString2Time = (dateString) => {
+    const temp_date = new Date(dateString);
+    return temp_date.getTime();
+  };
   return (
     <>
       {editing ? (
@@ -72,8 +78,20 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
         <div>
           {todoObj.fullyDate === dateValue.toDateString() && (
             <div className={isClear ? clearLine : ""}>
-              <button onClick={toggleFlag}>
-                {todoObj.hotFlag ? "❤" : "🤍"}
+              <button
+                onClick={toggleFlag}
+                disabled={
+                  dateString2Time(todoObj.fullyDate) <
+                  dateString2Time(today.toDateString())
+                    ? "disabled"
+                    : null
+                }
+              >
+                {todoObj.hotFlag ? (
+                  <FontAwesomeIcon icon={faFire} color="red" />
+                ) : (
+                  <FontAwesomeIcon icon={faFire} />
+                )}
               </button>
               <input onClick={onClear} type="checkbox" />
               <span>{todoObj.text}</span>
@@ -81,11 +99,16 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
                 type="button"
                 onClick={toggleEditTodo}
                 disabled={
-                  todoObj.fullyDate < today.toDateString() ? "disabled" : null
+                  dateString2Time(todoObj.fullyDate) <
+                  dateString2Time(today.toDateString())
+                    ? "disabled"
+                    : null
                 }
                 value="Edit"
               />
-              <button onClick={onDeleteClick}>❌</button>
+              <button onClick={onDeleteClick}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
             </div>
           )}
         </div>
