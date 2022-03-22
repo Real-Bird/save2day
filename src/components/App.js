@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fBase";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
-import basicProfile from "../image/basic_profile.png";
+// import basicProfile from "../image/basic_profile.png";
 import loadingGif from "../image/profile_load.gif";
 import "../css/styles.css";
 
@@ -17,11 +17,11 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(authService, async (user) => {
       if (user) {
-        if (user.photoURL == null) {
-          await updateProfile(user, {
-            photoURL: basicProfile,
-          });
-        }
+        // if (user.photoURL == null) {
+        //   await updateProfile(user, {
+        //     photoURL: basicProfile,
+        //   });
+        // }
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,

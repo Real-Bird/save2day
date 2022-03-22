@@ -16,14 +16,14 @@
   position: relative;
   display: flex;
   flex-flow: column wrap;
-  height: 4em;
+  height: 16vh;
   width: 30em;
   align-items: center;
   justify-content: space-evenly;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 8em;
   font-style: italic;
 }
 

@@ -1,12 +1,13 @@
 @import "reset.css";
-@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+@import url(https://fonts.googleapis.com/css2?family=Hurricane&family=Yeon+Sung&display=swap);
 
 html {
   background-color: #212121;
   height: 100%;
 }
 body {
-  font-family: "Jeju Hallasan", cursive;
+  font-family: "Hurricane", "Yeon Sung", cursive;
+  height: 100%;
 }
 
 a {

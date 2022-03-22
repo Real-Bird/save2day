@@ -8,7 +8,6 @@ import Profile from "router/Profile";
 import Quotes from "./Quotes";
 import Header from "components/Header";
 import "../css/common.css";
-import Notice from "router/Notice";
 import NoticeHead from "components/NoticeHead";
 
 const Home = ({ userObj, today }) => {
@@ -37,7 +36,7 @@ const Home = ({ userObj, today }) => {
         <div className="profile">
           <Profile userObj={userObj} />
         </div>
-        <Header userObj={userObj} />
+        <Header />
         <div>
           <NoticeHead />
         </div>

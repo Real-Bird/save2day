@@ -1,0 +1,123 @@
+.auth-root {
+  height: 100vh;
+  display: grid;
+  gap: 80px;
+  grid-template-rows: 1fr 0.8fr 0.5fr 2.5fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.auth-root form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 0.6fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: start;
+  align-items: end;
+  gap: 6px;
+  padding-bottom: 20px;
+  border-bottom: 2px dotted #f2f2f2;
+  font-size: 2.3em;
+  animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.text-focus-in {
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.hidden {
+  visibility: hidden;
+}
+.text-blur-out {
+  animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+form > label,
+form > input:not([type="submit"]) {
+  grid-column: 1/ 4;
+}
+.auth-root input[type="submit"] {
+  margin-top: 10px;
+  grid-column: 2/ 3;
+  grid-row: 7/8;
+}
+.auth-root input {
+  width: 300px;
+  height: 50px;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid hsla(0, 0%, 100%, 0.6);
+  color: #f2f2f2;
+}
+.auth-root input[type="submit"],
+.auth-root input[type="button"] {
+  width: 100px;
+  height: 55px;
+  color: hsla(0, 0%, 100%, 0.6);
+  border: 3px solid hsla(0, 0%, 100%, 0.6);
+}
+
+.auth-root input[type="submit"]::target-text {
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+/* 애니메이션 영역 */
+@keyframes text-pop-up-top {
+  0% {
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    transform: translateY(-10px);
+    transform-origin: 50% 50%;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-blur-out {
+  0% {
+    filter: blur(0.01);
+  }
+  100% {
+    filter: blur(12px) opacity(0%);
+    visibility: hidden;
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tracking-out-contract {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+}

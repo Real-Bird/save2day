@@ -6,7 +6,7 @@ const Auth = () => {
     <>
       <AuthForm />
     </>
-  )
-}
+  );
+};
 
 export default Auth;
