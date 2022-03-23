@@ -12,7 +12,6 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import "../css/profile.css";
-import uploadImg from "../image/upload.png";
 
 const ProfileDetail = ({ userObj, refreshUser }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -20,6 +19,7 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
   const [editPhoto, setEditPhoto] = useState("");
   const [imgFile, setImgFile] = useState("");
   const [toggleEdit, setToggleEdit] = useState(false);
+  const basicPhoto = "https://picsum.photos/200";
   const fileClear = useRef();
   const history = useHistory();
   const onBack = () => {
@@ -111,7 +111,7 @@ const ProfileDetail = ({ userObj, refreshUser }) => {
       <div className="photo_box">
         <img
           className="photo_box__img"
-          src={userObj.profilePhoto}
+          src={userObj.profilePhoto == null ? basicPhoto : userObj.profilePhoto}
           alt="userPhoto"
         />
         <span className="display_name">{userObj.displayName}</span>

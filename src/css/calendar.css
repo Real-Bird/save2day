@@ -7,7 +7,10 @@
 }
 
 .react-calendar__navigation {
+  display: grid;
+  grid-template-columns: 0.01fr 0.01fr 0.3fr 0.01fr 0.01fr;
   height: 2em;
+  justify-content: center;
 }
 
 .react-calendar__navigation button {
@@ -16,20 +19,16 @@
   color: hsla(0, 0%, 100%, 0.6);
   background-color: transparent !important;
   background-image: none !important;
-  font-size: 1.2em;
-  font-family: "Jeju Hallasan", cursive;
-}
-
-.react-calendar__navigation__label {
-  width: 130px;
+  font-size: 1em;
+  font-family: "Hurricane", "Yeon Sung", cursive;
 }
 
 .react-calendar__navigation__prev-button,
 .react-calendar__navigation__prev2-button,
 .react-calendar__navigation__next2-button,
 .react-calendar__navigation__next-button {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-  font-size: 1em !important;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2em;
 }
 
 .react-calendar__navigation__prev2-button {
@@ -109,7 +108,7 @@
   padding: 0px 0px 37px 5px;
 }
 
-.react-calendar__tile--now > abbr {
+.react-calendar__tile--now > abbr:not([aria-label="2022 MAR"]) {
   background-color: red;
   border-radius: 100%;
 }

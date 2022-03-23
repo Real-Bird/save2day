@@ -8,7 +8,13 @@ import Todos from "router/Todos";
 const CalendarDetail = ({ userObj, todoList, today }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [dateValue, setDateValue] = useState(new Date());
-
+  const arrowBtnAll = document.querySelectorAll(
+    ".react-calendar__navigation__arrow"
+  );
+  arrowBtnAll.forEach((btn) => {
+    btn.style.fontFamily = "Courier New";
+    btn.style.fontSize = "1.2em";
+  });
   const openModal = () => {
     setModalOpen(true);
   };

@@ -1,15 +1,12 @@
-import { authService, storage } from "fBase";
+import { authService } from "fBase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import "../css/auth.css";
-import basicProfile from "../image/basic_profile.png";
-import { v4 as uuidv4 } from "uuid";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
 const AuthForm = () => {
   const [authId, setAuthId] = useState("");
@@ -20,9 +17,10 @@ const AuthForm = () => {
   const [pwdErr, setPwdErr] = useState("");
   const [newAccount, setNewAccount] = useState(false);
   const [isBlurOut, setIsBlurOut] = useState("hidden");
-
   const regExpId = /\w+.@save.2day/g;
   const regExpPwd = /[a-zA-Z0-9]{8,20}[!@#$%^&*]{1,}/g;
+
+  document.addEventListener("mouseup", () => setError(""));
   const onChange = (event) => {
     const {
       target: { value, id },
@@ -44,33 +42,18 @@ const AuthForm = () => {
     let data;
     if (newAccount) {
       if (regExpId.exec(authId) === null) {
-        console.log(regExpId.exec(authId));
         setIdErr("영어와 숫자만 가능합니다.");
         return;
       } else if (regExpPwd.exec(password) === null) {
-        console.log(regExpPwd.exec(password));
         setPwdErr("영숫자 + 특수문자(!@#$%^&*)만 가능합니다.");
         return;
       } else if (newAccount && nickName === "") {
         return;
       }
-      console.log(nickName);
       data = createUserWithEmailAndPassword(authService, authId, password)
         .then(async (data) => {
-          const basicPhoto = basicProfile;
-          const attachmentRef = ref(
-            storage,
-            `profile/${data.user.uid}/${uuidv4().slice(0, 9)}`
-          );
-          const response = await uploadString(
-            attachmentRef,
-            basicPhoto,
-            "data_url"
-          );
-          const basicPhotoURL = await getDownloadURL(response.ref);
           await updateProfile(data.user, {
             displayName: nickName,
-            photoURL: basicPhotoURL,
           });
         })
         .catch((e) => {
@@ -80,7 +63,7 @@ const AuthForm = () => {
       data = signInWithEmailAndPassword(authService, authId, password).catch(
         (error) => {
           console.log(error);
-          setError(error.message);
+          setError("아이디/비밀번호를 다시 확인해주세요.");
         }
       );
     }
@@ -139,7 +122,6 @@ const AuthForm = () => {
             type="submit"
             value={newAccount ? "등록" : "로그인"}
           />
-          {error && <span>{error}</span>}
         </form>
       </div>
       <input
@@ -148,6 +130,7 @@ const AuthForm = () => {
         onClick={newAccountClick}
         value={newAccount ? "로그인" : "등록"}
       />
+      <div className={error ? "fberr-open" : "fberr-close"}>{error}</div>
     </div>
   );
 };

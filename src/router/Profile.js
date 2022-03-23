@@ -4,13 +4,18 @@ import { Link } from "react-router-dom";
 import "../css/profile.css";
 
 const Profile = ({ userObj }) => {
+  const basicPhoto = "https://picsum.photos/200";
   const onLogOutClick = () => {
     authService.signOut();
   };
+
   return (
     <>
       <div className="profile_box">
-        <img src={userObj.profilePhoto} alt="profileImg" />
+        <img
+          src={userObj.profilePhoto == null ? basicPhoto : userObj.profilePhoto}
+          alt="profileImg"
+        />
         <div className="profile_box__name">
           <h2>{userObj.displayName}</h2>
           <Link to="/profile">

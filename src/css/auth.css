@@ -1,7 +1,9 @@
+@import url(https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap);
+
 .auth-root {
   height: 100vh;
   display: grid;
-  gap: 80px;
+  gap: 35px;
   grid-template-rows: 1fr 0.8fr 0.5fr 2.5fr;
   align-items: center;
   justify-items: center;
@@ -12,7 +14,7 @@
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 0.6fr;
   grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
-  justify-items: start;
+  justify-items: center;
   align-items: end;
   gap: 6px;
   padding-bottom: 20px;
@@ -24,11 +26,24 @@
 .text-focus-in {
   animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
+
+input[id="nickname"] {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
 .hidden {
   visibility: hidden;
 }
 .text-blur-out {
   animation: text-blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+form > input[id="id"],
+form > input[id="pwd"] {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
 form > label,
@@ -52,6 +67,8 @@ form > input:not([type="submit"]) {
 }
 .auth-root input[type="submit"],
 .auth-root input[type="button"] {
+  font-family: "Yeon Sung", cursive;
+  font-size: 18px;
   width: 100px;
   height: 55px;
   color: hsla(0, 0%, 100%, 0.6);
@@ -60,6 +77,53 @@ form > input:not([type="submit"]) {
 
 .auth-root input[type="submit"]::target-text {
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+.fberr-close {
+  display: none;
+  opacity: 0;
+}
+
+.fberr-open {
+  position: relative;
+  width: 295px;
+  height: 15px;
+  padding: 5px;
+  background: #727374;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: #d1d2d1 solid 7px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  transform: translate(165px, -270px);
+  opacity: 1;
+}
+
+.fberr-open::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 7px 0;
+  border-color: #727374 transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  bottom: -10px;
+  left: 17px;
+}
+
+.fberr-open::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 16px 13px 0;
+  border-color: #d1d2d1 transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  bottom: -23px;
+  left: 11px;
 }
 
 /* 애니메이션 영역 */
