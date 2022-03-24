@@ -108,7 +108,8 @@
   padding: 0px 0px 37px 5px;
 }
 
-.react-calendar__tile--now > abbr:not([aria-label="2022 MAR"]) {
+.react-calendar__tile--now
+  > abbr:not(.react-calendar__year-view__months__month > abbr) {
   background-color: red;
   border-radius: 100%;
 }

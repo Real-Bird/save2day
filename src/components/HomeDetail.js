@@ -12,8 +12,8 @@ const HomeDetail = ({ today, todoList }) => {
           hot.hotFlag &&
           hot.fullyDate === today.toDateString() && (
             <div key={hot.todoId} className="hot_todo">
-              <FontAwesomeIcon icon={faFire} color="red" />
-              {hot.text}
+              <FontAwesomeIcon icon={faFire} color="red" className="fire" />
+              <span className="hot_text">{hot.text}</span>
             </div>
           )
       )}

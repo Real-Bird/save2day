@@ -5,6 +5,50 @@
   border: 2px outset hsla(0, 0%, 100%, 0.6);
 }
 
+.hot_text {
+  padding: 5px 30px;
+}
+
 .hot_todo {
-  font-size: 26px;
+  font-size: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 3px 50px;
+}
+
+.fire {
+  width: 40px;
+  height: 40px;
+  transform-origin: 50% 48%;
+  animation: wobble-hor-bottom 0.7s infinite ease-out;
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
 }

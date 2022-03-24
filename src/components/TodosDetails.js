@@ -27,6 +27,9 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
   };
   const onSubmit = async (event) => {
     event.preventDefault();
+    if (updateTodo === "") {
+      return;
+    }
     const newTodoRef = doc(db, `${userObj.uid}`, `${todoObj.id}`);
     await updateDoc(newTodoRef, {
       text: updateTodo,
@@ -59,7 +62,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
   return (
     <>
       {editing ? (
-        <div>
+        <div className="todos_edit">
           <form onSubmit={onSubmit}>
             <input
               type="text"
@@ -72,7 +75,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
             />
             <input type="submit" value="Edit" />
           </form>
-          <button onClick={toggleEditTodo}>Cancel</button>
+          <input type="button" onClick={toggleEditTodo} value="취소" />
         </div>
       ) : (
         <div>

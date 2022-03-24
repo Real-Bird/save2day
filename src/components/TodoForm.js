@@ -30,7 +30,7 @@ const TodoForm = ({ userObj, dateValue }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form class="todos_submit" onSubmit={onSubmit}>
         <input
           onChange={onChange}
           type="text"

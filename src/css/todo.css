@@ -2,3 +2,17 @@
   text-decoration: line-through;
   color: #d3d3d3;
 }
+
+.todos_submit {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.todos_edit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
