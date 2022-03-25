@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap);
+
 .clear {
   text-decoration: line-through;
-  color: #d3d3d3;
+  color: rgb(49, 49, 49);
 }
 
 .todos_submit {
@@ -15,4 +17,95 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.todos_edit input[type="text"] {
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid hsla(0, 0%, 100%, 0.6);
+  color: #f2f2f2;
+}
+
+.todos_edit input[type="text"]::placeholder {
+  color: #a3a3a3;
+}
+
+.todos_edit form {
+  transform: translateX(60px);
+}
+
+.todos_edit input {
+  width: 21.4em;
+}
+
+.todos_edit form button {
+  transform: translateX(18px);
+}
+
+.todo_list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.todo_list__each {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.todo_list__each button {
+  background-color: transparent;
+}
+
+.todo_list__each input[type="check"] {
+  transform: translateX(-50px);
+}
+
+.todo_list__each span {
+  width: 12em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #707070;
+  position: relative;
+}
+input[type="checkbox"]:checked + label::after {
+  content: "✔";
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(0px, -5px);
+  color: crimson;
+  animation: checkStamp 1s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes checkStamp {
+  0% {
+    transform: scale(2) translate(0px, -5px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(0px, -5px);
+    opacity: 1;
+  }
 }

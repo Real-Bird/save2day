@@ -1,12 +1,10 @@
 import React from "react";
 import "../css/modal.css";
+import TodoForm from "./TodoForm";
 
 const Modal = (props) => {
-  // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, header } = props;
-
+  const { open, close, header, dateValue, userObj, today } = props;
   return (
-    // 모달이 열릴때 openModal 클래스가 생성된다.
     <div className={open ? "openModal modal" : "modal"}>
       {open ? (
         <section>
@@ -17,6 +15,9 @@ const Modal = (props) => {
             </button>
           </header>
           <main>{props.children}</main>
+          <footer>
+            <TodoForm userObj={userObj} dateValue={dateValue} today={today} />
+          </footer>
         </section>
       ) : null}
     </div>

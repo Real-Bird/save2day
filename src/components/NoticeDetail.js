@@ -4,6 +4,7 @@ import { authService, db } from "fBase";
 import { onAuthStateChanged } from "firebase/auth";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import "../css/notice.css";
 
 const NoticeDetail = ({ match }) => {
   const [notice, setNotice] = useState([]);
@@ -24,19 +25,33 @@ const NoticeDetail = ({ match }) => {
     return () => unsubscribe();
   }, []);
   const note = notice.find((notes) => notes.no === match.params.no);
+  const regExp = /\\r\\n|\\r|\\n/g;
   return (
-    <>
-      <Link to="/">
-        <Header />
-      </Link>
+    <div className="note-box">
+      <div className="note-header">
+        <Link to="/">
+          <Header className="header" />
+        </Link>
+      </div>
       {note && (
-        <div key={note.key}>
-          <h1>{note.title}</h1>
-          <span>{note.author}</span>
-          <div>{note.bodyText}</div>
+        <div key={note.key} className="note-body">
+          <span className="note-date">{`${new Date(
+            note.regDate.seconds * 1000
+          ).getFullYear()}-${
+            new Date(note.regDate.seconds * 1000).getMonth() + 1
+          }-${new Date(note.regDate.seconds * 1000).getDate()} ${new Date(
+            note.regDate.seconds * 1000
+          ).getHours()}:${new Date(
+            note.regDate.seconds * 1000
+          ).getMinutes()}`}</span>
+          <h1 className="note-title">{note.title}</h1>
+          <span className="note-author">작성자: {note.author}</span>
+          <div className="note-text">
+            {note.bodyText.replace(regExp, "\n\n")}
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

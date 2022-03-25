@@ -37,7 +37,7 @@ const Home = ({ userObj, today }) => {
           <Profile userObj={userObj} />
         </div>
         <Header />
-        <div>
+        <div className="notice">
           <NoticeHead />
         </div>
       </header>

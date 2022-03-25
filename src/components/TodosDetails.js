@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "fBase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faFire } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrash,
+  faFire,
+  faPenToSquare,
+  faArrowRotateBack,
+} from "@fortawesome/free-solid-svg-icons";
 import "../css/todo.css";
 
 const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
@@ -37,7 +42,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
     setEditing(false);
   };
   const onDeleteClick = async () => {
-    const ok = window.confirm("Are you sure you wnat to delete this todo?");
+    const ok = window.confirm("정말 지우시겠습니까?");
     if (ok) {
       await deleteDoc(doc(db, `${userObj.uid}`, `${todoObj.id}`));
     }
@@ -60,45 +65,61 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
     return temp_date.getTime();
   };
   return (
-    <>
-      {editing ? (
-        <div className="todos_edit">
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Edit your Todo"
-              onChange={onChange}
-              value={updateTodo}
-              required
-              autoFocus
-              className="formInput"
-            />
-            <input type="submit" value="Edit" />
-          </form>
-          <input type="button" onClick={toggleEditTodo} value="취소" />
-        </div>
-      ) : (
-        <div>
-          {todoObj.fullyDate === dateValue.toDateString() && (
-            <div className={isClear ? clearLine : ""}>
-              <button
-                onClick={toggleFlag}
-                disabled={
-                  dateString2Time(todoObj.fullyDate) <
-                  dateString2Time(today.toDateString())
-                    ? "disabled"
-                    : null
-                }
-              >
-                {todoObj.hotFlag ? (
-                  <FontAwesomeIcon icon={faFire} color="red" />
-                ) : (
-                  <FontAwesomeIcon icon={faFire} />
-                )}
+    <div
+      className={
+        todoObj.fullyDate === dateValue.toDateString() ? "todo_list" : undefined
+      }
+    >
+      {todoObj.fullyDate === dateValue.toDateString() && (
+        <div
+          className={
+            isClear ? `todo_list__each ${clearLine}` : "todo_list__each"
+          }
+        >
+          <button
+            className="todo_hot"
+            onClick={toggleFlag}
+            disabled={
+              dateString2Time(todoObj.fullyDate) <
+              dateString2Time(today.toDateString())
+                ? "disabled"
+                : null
+            }
+          >
+            {todoObj.hotFlag ? (
+              <FontAwesomeIcon icon={faFire} color="red" />
+            ) : (
+              <FontAwesomeIcon icon={faFire} />
+            )}
+          </button>
+          <input id="clear" onClick={onClear} type="checkbox" />
+          <label htmlFor="clear"></label>
+
+          {editing ? (
+            <>
+              <form className="todos_edit" onSubmit={onSubmit}>
+                <input
+                  type="text"
+                  placeholder="수정할 내용을 입력하세요."
+                  onChange={onChange}
+                  value={updateTodo}
+                  required
+                  autoFocus
+                  className="formInput"
+                />
+                <button type="submit">
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </button>
+              </form>
+              <button className="todo_undo" onClick={toggleEditTodo}>
+                <FontAwesomeIcon icon={faArrowRotateBack} />
               </button>
-              <input onClick={onClear} type="checkbox" />
+            </>
+          ) : (
+            <>
               <span>{todoObj.text}</span>
-              <input
+              <button
+                className="todo_edit"
                 type="button"
                 onClick={toggleEditTodo}
                 disabled={
@@ -107,17 +128,17 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
                     ? "disabled"
                     : null
                 }
-                value="Edit"
-              />
-              <button onClick={onDeleteClick}>
+              >
+                <FontAwesomeIcon icon={faPenToSquare} />
+              </button>
+              <button className="todo_trash" onClick={onDeleteClick}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
-            </div>
+            </>
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
-
 export default TodosDetails;

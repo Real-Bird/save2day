@@ -7,6 +7,9 @@
 
 .hot_text {
   padding: 5px 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .hot_todo {

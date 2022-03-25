@@ -69,6 +69,9 @@ const CalendarDetail = ({ userObj, todoList, today }) => {
                 dateValue.getMonth() + 1
               }월 ${dateValue.getDate()}일`
         }
+        userObj={userObj}
+        dateValue={dateValue}
+        today={today}
       >
         <Todos
           todoList={todoList}

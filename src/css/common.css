@@ -18,7 +18,7 @@
   position: relative;
   display: flex;
   flex-flow: column wrap;
-  height: 16vh;
+  height: 20vh;
   width: 30em;
   align-items: center;
   justify-content: space-evenly;
@@ -34,6 +34,16 @@
   bottom: 0%;
   width: 100%;
   text-align: center;
+}
+
+.notice h2 {
+  font-size: 3em;
+  font-weight: 800;
+}
+
+.notice li {
+  font-size: 1.3em;
+  padding-top: 10px;
 }
 
 footer {

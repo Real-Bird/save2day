@@ -37,11 +37,6 @@ const Todos = ({ userObj, today, dateValue }) => {
           dateValue={dateValue}
         />
       ))}
-      {dateValue >= today ? (
-        <TodoForm userObj={userObj} dateValue={dateValue} />
-      ) : (
-        <></>
-      )}
     </>
   );
 };

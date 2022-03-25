@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "fBase";
 import "../css/todo.css";
 
-const TodoForm = ({ userObj, dateValue }) => {
+const TodoForm = ({ userObj, dateValue, today }) => {
   const [newTodo, setNewTodo] = useState("");
   const onChange = (event) => {
     const {
@@ -30,14 +30,19 @@ const TodoForm = ({ userObj, dateValue }) => {
 
   return (
     <>
-      <form class="todos_submit" onSubmit={onSubmit}>
+      <form className="todos_submit" onSubmit={onSubmit}>
         <input
           onChange={onChange}
           type="text"
           placeholder="할 일을 등록하세요."
           value={newTodo}
+          disabled={dateValue < today ? true : false}
         />
-        <input type="submit" value="입력" />
+        <input
+          type="submit"
+          value="입력"
+          disabled={dateValue < today ? true : false}
+        />
       </form>
     </>
   );
