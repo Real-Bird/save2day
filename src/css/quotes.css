@@ -7,6 +7,14 @@
   align-content: center;
 }
 
+.quotes_text {
+  font-size: 30px;
+}
+
+.quotes_author {
+  font-size: 24px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -25,20 +33,21 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
+  top: 10px;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
+  height: 25px;
 }
 
 .slider:before {
   position: absolute;
-  height: 26px;
-  width: 26px;
+  height: 20px;
+  width: 20px;
   left: 4px;
-  bottom: 4px;
+  bottom: 2.6px;
   background-color: white;
   transition: 0.4s;
   content: "";
@@ -52,27 +61,29 @@
 .text:before {
   position: absolute;
   color: black;
-  transform: translate(6px, 9px);
+  transform: translate(6px, 15px);
   transition: 0.4s;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   content: "A";
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #7a7a7ac2;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px hsla(0, 0%, 100%, 0.6);
 }
 
 input:checked ~ .text:before {
   color: black;
-  transform: translate(-24px, 9px);
+  transform: translate(-22px, 15px);
   content: "가";
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(33px);
 }
 
 /* Rounded sliders */

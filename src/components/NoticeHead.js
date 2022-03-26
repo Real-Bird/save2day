@@ -26,11 +26,16 @@ const NoticeHead = () => {
     <>
       <h2>Notice</h2>
       <ul>
-        {noticeTitle.map((note) => (
-          <li key={note.key}>
-            <Link to={`/note/${note.no}`}>{note.title}</Link>
-          </li>
-        ))}
+        {noticeTitle
+          .sort((a, b) => {
+            return b.key - a.key;
+          })
+          .slice(0, 2)
+          .map((note) => (
+            <li key={note.key}>
+              <Link to={`/note/${note.no}`}>{note.title}</Link>
+            </li>
+          ))}
       </ul>
     </>
   );

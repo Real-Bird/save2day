@@ -13,7 +13,7 @@
 }
 
 .hot_todo {
-  font-size: 4em;
+  font-size: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,8 +22,8 @@
 }
 
 .fire {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   transform-origin: 50% 48%;
   animation: wobble-hor-bottom 0.7s infinite ease-out;
 }

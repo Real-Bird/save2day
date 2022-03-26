@@ -1,8 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Hurricane&family=Yeon+Sung&display=swap);
-
 .up_box {
   height: min-content;
-  margin-top: 3%;
 }
 
 .calendar {
@@ -53,8 +50,8 @@ footer {
 @media screen and (min-width: 700px) {
   .main_box {
     display: grid;
-    grid-template-rows: 0.3fr 1.2fr 0.3fr;
-    gap: 30px;
+    grid-template-rows: 0.3fr 1.2fr 0.2fr;
+    gap: 20px;
     text-align: center;
     justify-content: center;
     justify-items: center;

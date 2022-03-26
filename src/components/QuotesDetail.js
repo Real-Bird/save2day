@@ -18,8 +18,12 @@ const QuotesDetail = () => {
   return (
     <div className="quotes_detail">
       <div>
-        <span>{isKr ? Quotes.k_quote : Quotes.e_quote}</span>
-        <div>- {isKr ? Quotes.k_name : Quotes.e_name} -</div>
+        <span className="quotes_text">
+          {isKr ? Quotes.k_quote : Quotes.e_quote}
+        </span>
+        <div className="quotes_author">
+          - {isKr ? Quotes.k_name : Quotes.e_name} -
+        </div>
       </div>
       <div>
         <label className="switch">

@@ -48,10 +48,15 @@
 .react-calendar__month-view__days {
   display: grid !important;
   grid-template-columns: 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr;
-  align-content: stretch;
+  align-content: flex-start;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 45vh;
+}
+
+button.react-calendar__month-view__days__day--neighboringMonth {
+  border: 3px solid hsla(0, 4%, 46%, 0.6) !important;
+  color: hsla(0, 4%, 46%, 0.6) !important;
 }
 
 .react-calendar__year-view__months {
@@ -106,11 +111,14 @@
 .react-calendar__month-view__days button {
   text-align: left;
   padding: 0px 0px 37px 5px;
+  height: 70px;
 }
 
 .react-calendar__tile--now
   > abbr:not(.react-calendar__year-view__months__month > abbr) {
   background-color: red;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
 }
 

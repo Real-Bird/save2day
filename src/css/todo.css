@@ -55,7 +55,7 @@
   width: 100%;
   justify-content: space-between;
   font-size: 1.5em;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone Kaffeesatz", "Yeon Sung", sans-serif, cursive;
 }
 
 .todo_list__each button {
