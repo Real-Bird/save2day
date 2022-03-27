@@ -20,7 +20,7 @@ const TodoForm = ({ userObj, dateValue, today }) => {
     }
     event.preventDefault();
     const docRef = {
-      fullyDate: new Date().toDateString(),
+      fullyDate: dateValue.toDateString(),
       nickName: userObj.displayName,
       text: newTodo,
       todoId: Date.now(),

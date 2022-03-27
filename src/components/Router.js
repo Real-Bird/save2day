@@ -14,11 +14,11 @@ import ProfileDetail from "./ProfileDetail";
 const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
   return (
     <>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename="/">
         <Switch>
           {isLoggedIn ? (
             <>
-              <Route exact path={`${process.env.PUBLIC_URL}/`}>
+              <Route exact path="/">
                 <Home userObj={userObj} today={today} />
               </Route>
               <Route exact path="/note" component={NoticeHead} />
@@ -30,7 +30,7 @@ const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
             </>
           ) : (
             <>
-              <Route exact path={`${process.env.PUBLIC_URL}/`}>
+              <Route exact path="/">
                 <Auth />
               </Route>
               <Redirect from="*" to="/" />
