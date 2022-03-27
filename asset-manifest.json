@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f952ad7.css",
-    "main.js": "/static/js/main.4f19af1b.js",
-    "static/media/onload.gif": "/static/media/onload.863dfee80d1caeb5dcb0.gif",
-    "index.html": "/index.html",
-    "main.8f952ad7.css.map": "/static/css/main.8f952ad7.css.map",
-    "main.4f19af1b.js.map": "/static/js/main.4f19af1b.js.map"
+    "main.css": "https://Real-Bird.github.io/save2day/static/css/main.8f952ad7.css",
+    "main.js": "https://Real-Bird.github.io/save2day/static/js/main.f0e2e76a.js",
+    "static/media/onload.gif": "https://Real-Bird.github.io/save2day/static/media/onload.863dfee80d1caeb5dcb0.gif",
+    "index.html": "https://Real-Bird.github.io/save2day/index.html",
+    "main.8f952ad7.css.map": "https://Real-Bird.github.io/save2day/static/css/main.8f952ad7.css.map",
+    "main.f0e2e76a.js.map": "https://Real-Bird.github.io/save2day/static/js/main.f0e2e76a.js.map"
   },
   "entrypoints": [
     "static/css/main.8f952ad7.css",
-    "static/js/main.4f19af1b.js"
+    "static/js/main.f0e2e76a.js"
   ]
 }
