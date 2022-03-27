@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "fBase";
 import "../css/todo.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePen } from "@fortawesome/free-solid-svg-icons";
 
 const TodoForm = ({ userObj, dateValue, today }) => {
   const [newTodo, setNewTodo] = useState("");
@@ -34,15 +36,14 @@ const TodoForm = ({ userObj, dateValue, today }) => {
         <input
           onChange={onChange}
           type="text"
-          placeholder="할 일을 등록하세요."
+          placeholder="할 일을 등록하세요.(최대 15자)"
+          maxLength="15"
           value={newTodo}
           disabled={dateValue < today ? true : false}
         />
-        <input
-          type="submit"
-          value="입력"
-          disabled={dateValue < today ? true : false}
-        />
+        <button type="submit" disabled={dateValue < today ? true : false}>
+          <FontAwesomeIcon icon={faSquarePen} />
+        </button>
       </form>
     </>
   );

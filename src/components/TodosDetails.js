@@ -11,11 +11,10 @@ import {
 import "../css/todo.css";
 
 const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
-  const [clearLine, setClearLine] = useState("");
   const [hotFlag, setHotFlag] = useState(false);
-  const [isClear, setIsClear] = useState(false);
   const [editing, setEditing] = useState(false);
   const [updateTodo, setUpdateTodo] = useState("");
+
   const toggleFlag = async (e) => {
     setHotFlag((prev) => !prev);
     const newTodoRef = doc(db, `${userObj.uid}`, `${todoObj.id}`);
@@ -47,23 +46,26 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
       await deleteDoc(doc(db, `${userObj.uid}`, `${todoObj.id}`));
     }
   };
-  const onClear = (event) => {
+  const onClear = async (event) => {
+    const newTodoRef = doc(db, `${userObj.uid}`, `${todoObj.id}`);
     const {
       target: { checked },
     } = event;
     if (checked === true) {
-      setClearLine("clear");
-      setIsClear(checked);
+      await updateDoc(newTodoRef, {
+        isClear: checked,
+      });
     } else {
-      setClearLine("");
-      setIsClear(checked);
+      await updateDoc(newTodoRef, {
+        isClear: checked,
+      });
     }
   };
-
   const dateString2Time = (dateString) => {
     const temp_date = new Date(dateString);
     return temp_date.getTime();
   };
+
   return (
     <div
       className={
@@ -73,7 +75,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
       {todoObj.fullyDate === dateValue.toDateString() && (
         <div
           className={
-            isClear ? `todo_list__each ${clearLine}` : "todo_list__each"
+            todoObj.isClear ? "todo_list__each clear" : "todo_list__each"
           }
         >
           <button
@@ -92,8 +94,13 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
               <FontAwesomeIcon icon={faFire} />
             )}
           </button>
-          <input id="clear" onClick={onClear} type="checkbox" />
-          <label htmlFor="clear"></label>
+          <input
+            id={todoObj.todoId}
+            onClick={onClear}
+            type="checkbox"
+            checked={todoObj.isClear && "checked"}
+          />
+          <label htmlFor={todoObj.todoId}></label>
 
           {editing ? (
             <>
@@ -103,6 +110,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
                   placeholder="수정할 내용을 입력하세요."
                   onChange={onChange}
                   value={updateTodo}
+                  maxLength="15"
                   required
                   autoFocus
                   className="formInput"
@@ -117,7 +125,8 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
             </>
           ) : (
             <>
-              <span>{todoObj.text}</span>
+              <span className="todo_text">{todoObj.text}</span>
+
               <button
                 className="todo_edit"
                 type="button"

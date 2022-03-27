@@ -18,14 +18,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin: 3px 50px;
+  margin: 3px 20px;
 }
 
 .fire {
+  color: red;
   width: 30px;
   height: 30px;
   transform-origin: 50% 48%;
   animation: wobble-hor-bottom 0.7s infinite ease-out;
+}
+
+.done {
+  color: rgb(71, 71, 71);
+  animation: extinguishing_fire 1s ease-out 1 forwards normal;
+}
+
+@keyframes extinguishing_fire {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+  100% {
+    color: rgb(71, 71, 71);
+  }
 }
 
 @keyframes wobble-hor-bottom {
@@ -36,7 +51,7 @@
   }
 
   15% {
-    transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-10px) rotate(-6deg);
   }
 
   30% {

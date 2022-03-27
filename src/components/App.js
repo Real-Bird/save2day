@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fBase";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
-import loadingGif from "../image/profile_load.gif";
+import loadingGif from "../image/onload.gif";
 import "../css/styles.css";
 
 const titleEl = document.querySelector("title");
@@ -58,7 +58,9 @@ function App() {
           />
         </>
       ) : (
-        <img src={loadingGif} alt="loading" />
+        <div className="loading">
+          <img src={loadingGif} alt="loading" />
+        </div>
       )}
     </div>
   );
