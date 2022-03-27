@@ -14,7 +14,7 @@ import ProfileDetail from "./ProfileDetail";
 const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
   return (
     <>
-      <Router basename="/">
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           {isLoggedIn ? (
             <>
