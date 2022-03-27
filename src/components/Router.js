@@ -18,7 +18,7 @@ const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
         <Switch>
           {isLoggedIn ? (
             <>
-              <Route exact path="/">
+              <Route exact path={`${process.env.PUBLIC_URL}/`}>
                 <Home userObj={userObj} today={today} />
               </Route>
               <Route exact path="/note" component={NoticeHead} />
@@ -30,7 +30,7 @@ const AppRouter = ({ isLoggedIn, userObj, today, refreshUser }) => {
             </>
           ) : (
             <>
-              <Route exact path="/">
+              <Route exact path={`${process.env.PUBLIC_URL}/`}>
                 <Auth />
               </Route>
               <Redirect from="*" to="/" />
