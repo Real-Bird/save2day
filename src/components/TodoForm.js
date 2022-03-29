@@ -21,10 +21,12 @@ const TodoForm = ({ userObj, dateValue, today }) => {
     event.preventDefault();
     const docRef = {
       fullyDate: dateValue.toDateString(),
+      fullyTime: dateValue.getTime(),
       nickName: userObj.displayName,
       text: newTodo,
       todoId: Date.now(),
       hotFlag: false,
+      isClear: false,
     };
     await addDoc(collection(db, `${userObj.uid}`), docRef);
     setNewTodo("");

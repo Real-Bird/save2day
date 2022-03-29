@@ -51,7 +51,7 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
     const {
       target: { checked },
     } = event;
-    if (checked === true) {
+    if (checked) {
       await updateDoc(newTodoRef, {
         isClear: checked,
       });
@@ -96,8 +96,8 @@ const TodosDetails = ({ userObj, todoObj, today, dateValue }) => {
           </button>
           <input
             id={todoObj.todoId}
-            onClick={onClear}
             type="checkbox"
+            onChange={onClear}
             checked={todoObj.isClear && "checked"}
           />
           <label htmlFor={todoObj.todoId}></label>

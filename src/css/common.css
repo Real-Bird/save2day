@@ -89,6 +89,11 @@ footer {
     width: 24em;
     transform: translateY(70px);
     text-align: center;
+    overflow-y: scroll;
+  }
+
+  .home::-webkit-scrollbar {
+    visibility: collapse;
   }
 
   .bottom_box {
