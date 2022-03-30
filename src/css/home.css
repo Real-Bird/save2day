@@ -12,13 +12,22 @@
   overflow: hidden;
 }
 
+.hot_body {
+  height: 87%;
+  overflow-y: scroll;
+}
+.hot_body::-webkit-scrollbar {
+  visibility: collapse;
+}
+
 .hot_todo {
   font-size: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin: 3px 20px;
+  margin: 3px 50px;
+    column-gap: 25px;
 }
 
 .fire {

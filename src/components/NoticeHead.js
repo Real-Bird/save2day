@@ -33,7 +33,7 @@ const NoticeHead = () => {
           .slice(0, 2)
           .map((note) => (
             <li key={note.key}>
-              <Link to={`/note/${note.no}`}>{note.title}</Link>
+              <Link to={`/note/${note.no}`}><div style={{width: "max-content"}}>{note.title}</div></Link>
             </li>
           ))}
       </ul>

@@ -3,7 +3,6 @@
   width: 100%;
   height: 60vh;
   display: grid;
-  grid-template-rows: 0.5fr 1fr;
 }
 
 .react-calendar__navigation {
@@ -52,6 +51,11 @@
   align-items: stretch;
   justify-content: space-evenly;
   height: 45vh;
+}
+
+.react-calendar__viewContainer > div > div {
+  width: 90%;
+  margin: 0 auto;
 }
 
 button.react-calendar__month-view__days__day--neighboringMonth {

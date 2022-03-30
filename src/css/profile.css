@@ -37,6 +37,7 @@
   width: 40vw;
   justify-items: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .editphoto_box__img {

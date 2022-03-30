@@ -6,7 +6,23 @@ html {
   height: 100%;
 }
 body {
+  color: hsla(0, 0%, 100%, 0.6);
   font-family: "Hurricane", "Yeon Sung", cursive;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 4%, 46%, 0.6);
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px
 }
 
 a {
@@ -24,23 +40,4 @@ a {
   position: absolute;
   top: 40%;
   left: 50%;
-}
-
-@media screen and (min-width: 700px) {
-  body {
-    display: grid;
-    grid-template-rows: 1fr;
-    color: hsla(0, 0%, 100%, 0.6);
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 699px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    color: hsla(0, 0%, 100%, 0.6);
-  }
 }
