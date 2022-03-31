@@ -13,12 +13,12 @@
   height: min-content;
   width: 80%;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.6fr 1fr 0.6fr;
   gap: 2%;
   align-content: center;
   justify-items: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .middle_box {
@@ -41,8 +41,7 @@
 }
 
 .calendar {
-  width: 88.51%;
-    height: 99.31%;
+  height: 99.31%;
 }
 
 .super_title {
@@ -67,6 +66,13 @@
   text-align: center;
 }
 
+.notice {
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .notice h2 {
   font-size: 3em;
   font-weight: 800;
@@ -83,11 +89,9 @@ footer {
 
 @media screen and (min-width: 700px) {
   .home {
-    border: 3px solid hsla(0, 0%, 100%, 0.6);
     color: hsla(0, 0%, 100%, 0.6);
-    border-radius: 20px;
     height: 98.63%;
-    width: 65%;
+    width: 452px;
     text-align: center;
   }
 }
