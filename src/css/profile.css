@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row wrap;
   width: 15vw;
-  min-width: 280px;
   border: 2px solid hsla(0, 0%, 100%, 0.6);
   justify-content: center;
   border-radius: 20px;
@@ -21,7 +20,6 @@
   font-size: 26px;
 }
 .profile_box__name button {
-  font-family: "Jeju Hallasan", cursive;
   border-radius: 7px;
   margin: 5px;
   text-align: center;
@@ -34,10 +32,12 @@
 .full_porfile_box {
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.7fr;
-  width: 40vw;
+  width: 80%;
   justify-items: center;
   align-items: center;
   margin: 0 auto;
+  gap: 3%;
+  justify-content: center;
 }
 
 .editphoto_box__img {
@@ -122,4 +122,13 @@ input::file-selector-button {
   width: 80px;
   height: 80px;
   border-radius: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+  .profile_box {
+    width: 60%;
+  }
+  .profile_box img {
+    display: none;
+  }
 }

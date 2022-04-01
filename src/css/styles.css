@@ -22,7 +22,7 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-track {
   background-color: transparent;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 a {
@@ -34,10 +34,11 @@ a {
   height: 100vh;
   position: relative;
   width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loading img {
   position: absolute;
-  top: 40%;
-  left: 50%;
 }

@@ -8,8 +8,9 @@
   flex-flow: column wrap;
   align-items: center;
   width: 30%;
-    gap: 30px;
-    margin: 0 auto;
+  gap: 30px;
+  margin: 0 auto;
+  align-content: center;
 }
 
 .note-body {
@@ -46,6 +47,6 @@
   grid-column: 1/4;
   white-space: break-spaces;
   font-size: 1.6rem;
-    padding-top: 10px;
-    line-height: 20px;
+  padding-top: 10px;
+  line-height: 20px;
 }

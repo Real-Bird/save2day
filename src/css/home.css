@@ -13,10 +13,12 @@
 }
 
 .hot_body {
-  height: 87%;
+  height: 80%;
   overflow-y: scroll;
   border: 3px solid hsla(0, 0%, 100%, 0.6);
   border-radius: 20px;
+  min-height: 50px;
+  padding: 5%;
 }
 .hot_body::-webkit-scrollbar {
   visibility: collapse;
@@ -29,6 +31,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: 3px 10px;
+  gap: 5%;
 }
 
 .fire {

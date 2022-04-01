@@ -2,8 +2,8 @@
   width: 93.75%;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 0.3fr 1.2fr 0.2fr;
-  gap: 20px;
+  grid-template-rows: 0.3fr 3.2fr 0.2fr;
+  gap: 3%;
   text-align: center;
   justify-items: center;
   align-items: center;
@@ -27,7 +27,7 @@
   text-align: center;
   column-gap: 30px;
   width: 80%;
-  height: 36.5em;
+  height: 95%;
   justify-content: space-evenly;
   align-items: start;
   justify-items: center;
@@ -41,7 +41,7 @@
 }
 
 .calendar {
-  height: 99.31%;
+  height: 80%;
 }
 
 .super_title {
@@ -87,7 +87,7 @@ footer {
   text-align: center;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1080px) {
   .home {
     color: hsla(0, 0%, 100%, 0.6);
     height: 98.63%;
@@ -95,18 +95,40 @@ footer {
     text-align: center;
   }
 }
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 1080px) {
   .main_box {
-    display: flex;
-    flex-flow: column wrap;
+    display: grid;
     text-align: center;
-    width: 310px;
-    justify-content: space-between;
+    grid-template-rows: 0.4fr auto 0.4fr;
+    width: 80%;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
   }
   .up_box {
-    display: flex;
-    flex-flow: column wrap;
+    display: grid;
     text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.6fr;
+  }
+
+  .super_title {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+
+  .profile,
+  .notice {
+    grid-column: 1/2;
+    grid-row: 2;
+  }
+
+  .profile {
+    transform: translateX(-75px);
+  }
+
+  .notice {
+    transform: translateX(125px);
   }
 
   .profile,
@@ -117,6 +139,7 @@ footer {
 
   .middle_box {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+    gap: 3%;
   }
 }
