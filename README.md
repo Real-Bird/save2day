@@ -2,7 +2,7 @@
 
 ## 링크
 
-`<https://real-bird.github.io/save2day>`
+<https://real-bird.github.io/save2day>
 
 ## 개요
 
